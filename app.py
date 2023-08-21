@@ -1,5 +1,6 @@
 from enum import Enum
 import os
+import json
 
 class Actions(Enum):
     PRINT = 0
@@ -10,6 +11,10 @@ class Actions(Enum):
     SAVE =7
 
 contacts =[]
+
+def save_2_file():
+    with open("contacts.json", "w") as f:
+        json.dump(contacts, f)
 
 def display_menu():
     for x in Actions: print(f'{x.value}  - {x.name}' )
@@ -53,4 +58,5 @@ def find_contact():
 if __name__ == '__main__':
     clear_screen()
     menu()
+    save_2_file()
     print("Thank u 4 using my program")
